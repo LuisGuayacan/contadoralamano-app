@@ -58,7 +58,7 @@
             this.username = this.$route.params.username
             this.registro_tipo="ingreso"
             let self = this
-            axios.get("https://contador-ala-mano.herokuapp.com/registro/tipo/" + this.username + "?Tipo=" + this.registro_tipo) // + this.username
+            axios.get("https://localhost:8000/registro/tipo/" + this.username + "?Tipo=" + this.registro_tipo) // + this.username
                 .then((result) => {
                     this.nota = result.data.ingreso
                     //this.nota="Excelente!"
@@ -72,7 +72,7 @@
                 this.username = this.$route.params.username
                 this.registro_tipo="egreso"
                 let self = this
-                axios.get("https://contador-ala-mano.herokuapp.com/registro/tipo/" + this.username + "?Tipo=" + this.registro_tipo) // + this.username
+                axios.get("https://localhost:8000/registro/tipo/" + this.username + "?Tipo=" + this.registro_tipo) // + this.username
                     .then((result) => {
                         this.nota = result.data.egreso
                         //this.nota="Ahi vamos"
@@ -89,7 +89,7 @@
             this.username = this.$route.params.username
 
             let self = this
-            axios.get("https://contador-ala-mano.herokuapp.com/registro/tipo/" + this.username + "?Tipo=" + this.registro_tipo) // + this.username
+            axios.get("https://localhost:8000/registro/tipo/" + this.username + "?Tipo=" + this.registro_tipo) // + this.username
                 .then((result) => {
                     //self.Balance = result.data.Balance
                     this.nota="vamos bien"
