@@ -48,7 +48,7 @@
             nota:this.nota
       };
       axios
-        .post("https://contador-ala-mano.herokuapp.com/registro/", datosJSON)
+        .post("http://contador-ala-mano.herokuapp.com/registro/", datosJSON)
         .then(respuesta  => {
           alert(respuesta.data.mensaje);
         })
