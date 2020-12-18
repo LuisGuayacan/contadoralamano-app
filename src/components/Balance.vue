@@ -36,7 +36,7 @@
         this.username = this.$route.params.username
 
         let self = this
-        axios.get("http://contador-ala-mano.herokuapp.com/registro/balance/" + this.username)
+        axios.get("https://backend-contador-a-la-mano.herokuapp.com/registro/balance/" + this.username)
         .then((result) => {
           self.balance = result.data.balance
           self.data = result.data.data
