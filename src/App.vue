@@ -5,9 +5,10 @@
       <img src="./assets/contador3.png" alt="logo">
       <!-- <h1>Contador a la Mano</h1> -->
         <nav>
-          <button v-on:click="getRegistro" v-if="is_auth" > Registro </button>
+          <button v-on:click="getRegistro" v-if="is_auth" > Registrar </button>
           <button v-on:click="getBalance" v-if="is_auth" > Balance </button>
           <button v-on:click="getTipo" v-if="is_auth" > Reporte por tipo </button>
+          <button v-on:click="getpto" v-if="is_auth" > Presupuestos </button>
         </nav>
     </div>
 
@@ -61,7 +62,12 @@
         if(this.$route.name != "reporte_tipo"){
           let username = localStorage.getItem("current_username")
           this.$router.push({name:"reporte_tipo", params:{username:username}})
-
+          }
+      },
+      getpto: function(){
+        if(this.$route.name != "Presupuesto"){
+          let username = localStorage.getItem("current_username")
+          this.$router.push({name:"Presupuesto", params:{username:username}})
           }
       },
     },

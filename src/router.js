@@ -3,6 +3,7 @@ import User from './components/User'
 import MiBalance from './components/Balance'
 import RegistroTipo from './components/RegistroPorTipo'
 import AgregarRegistro from './components/Registro'
+import Pto from './components/Presupuesto'
 import App from'./App'
 
 const router = new vueRouter({
@@ -37,6 +38,12 @@ const router = new vueRouter({
         path:'/registro/tipo/:username',
         name: "reporte_tipo",
         component: RegistroTipo
+        },
+
+        {
+        path:'/registro/Pto/:username',
+        name: "Presupuesto",
+        component: Pto
         },
     ]
 })

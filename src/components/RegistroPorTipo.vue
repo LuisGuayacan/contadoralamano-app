@@ -95,7 +95,7 @@
                     this.nota="vamos bien"
                 })
                 .catch((error) => {
-                    alert("ERRORServidor");
+                    alert("selecciona el tipo");
                 });
 
         }
