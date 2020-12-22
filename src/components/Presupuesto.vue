@@ -65,7 +65,7 @@
         this.username = this.$route.params.username
         this.existe= true
         let self = this
-        axios.get("http://127.0.0.1:8000/presupuesto/balance/" + this.username + "?etiqueta=" + this.etiqueta + "&mes=" + this.mes)
+        axios.get("https://backend-contador-a-la-mano.herokuapp.com/presupuesto/balance/" + this.username + "?etiqueta=" + this.etiqueta + "&mes=" + this.mes)
         .then((result) => {
           self.valorPto = result.data.presupuesto[0].valor
           self.data = result.data.registros
