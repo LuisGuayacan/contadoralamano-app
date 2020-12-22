@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="general">
   <div id="encabezado">
     <h2>Hola PEDRO</h2>
     <h2>Tu presupuesto de 
@@ -14,7 +14,7 @@
   </div>
 
   <div id="información" v-if= "existe">
-    <h3>{{valorPto}} COP, has gastado {{egresos}} cop, te queda {{cupo}} cop </h3>
+    <h3><span>{{valorPto}} COP</span>, has gastado <span>{{egresos}} cop </span>, te queda <span> {{cupo}} cop </span></h3>
     <h3> Aquí tienes tus registros relacionados: </h3>
     <table>
     <tr>
@@ -93,7 +93,7 @@
 </script>
 
 <style>
-#UserBalance{
+#general{
   width: 100%;
   height: 100%;
   display: flex;
@@ -101,17 +101,30 @@
   justify-content: center;
   align-items: center;
 }
-#UserBalance h2{
+#general h2{
   font-size: 30px;
   color: #283747;
 }
-#UserBalance span{
+#general span{
   color: #f59f7d;
   font-weight: bold;
 }
+#información{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+}
+#información span{
+  color: #984cf5;
+  font-weight: bold;
+}
+
 table {
   table-layout: fixed;
-  width: 70%;
+  width: 60%;
   border: 1px solid #000;
 }
 th, td {
