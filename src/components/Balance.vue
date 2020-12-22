@@ -32,7 +32,7 @@
           balance: 0
         }
       },
-    created: function(){
+      created: function(){
         this.username = this.$route.params.username
 
         let self = this

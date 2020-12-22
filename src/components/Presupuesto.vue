@@ -2,12 +2,12 @@
   <div id="general">
   <div id="encabezado">
     <h2>Hola PEDRO</h2>
-    <h2>Tu presupuesto de 
+    <h2>Tu presupuesto de
       <select v-model= "etiqueta">
-        <option>Casa</option>
-        <option>Comida</option>
-        <option>Transporte</option>
-        <option>Entretenimiento</option>
+        <option>casa</option>
+        <option>comida</option>
+        <option>transporte</option>
+        <option>entretenimiento</option>
       </select>
        es de: </h2>
        <button v-on:click="Ver" > Ver la información </button>
@@ -22,12 +22,12 @@
         <th> Nota </th>
         <th> Valor </th>
         <th> Fecha </th>
-                
+
     </tr>
     <tr v-for="registro in data" v-bind:key="registro.id">
-      <td>{{registro.id}}</td>                         
+      <td>{{registro.id}}</td>
       <td>{{registro.nota}}</td>
-      <td>${{registro.valor}}</td>              
+      <td>${{registro.valor}}</td>
       <td>{{registro.fecha}}</td>
     </tr>
     </table>
@@ -35,7 +35,7 @@
 
   <div id="información" v-else>
     <h3>primero debes dar clic en <span>"Ver la información"</span>, </h3>
-    
+
   </div>
   <div v-if= "nada">
     <h3> En este momento no tienes un presupuesto para <span> {{etiqueta}} . </span> </h3>
@@ -57,6 +57,7 @@
           cupo:0,
           etiqueta:"",
           nada: false,
+          mes: 12
         }
       },
       methods:{
@@ -64,30 +65,21 @@
         this.username = this.$route.params.username
         this.existe= true
         let self = this
-        axios.get("http://127.0.0.1:8000/registro/pto/" + this.username + "?categoria=" + this.etiqueta)
+        axios.get("http://127.0.0.1:8000/presupuesto/balance/" + this.username + "?etiqueta=" + this.etiqueta + "&mes=" + this.mes)
         .then((result) => {
-          self.valorPto = result.data.valorPto
-          self.data = result.data.data
-          self.egresos=result.data.egresos
-          self.cupo=result.data.cupo
+          self.valorPto = result.data.presupuesto[0].valor
+          self.data = result.data.registros
+          self.egresos=result.data.gastos_totales
+          self.cupo=result.data.estado
         })
         .catch((error) => {
           this.nada=true
           alert("ERROR Servidor");
         });
-        }    
+        }
       },
     created: function(){
-        this.username = this.$route.params.username
-        let self = this
-        axios.get("http://127.0.0.1:8000/registro/pto/" + this.username + "?categoria=" + this.etiqueta)
-        .then((result) => {
-          self.balance = result.data.balance
-          self.data = result.data.data
-        })
-        .catch((error) => {
-          alert("Selecciona una etiqueta");
-        });
+           alert("Selecciona una etiqueta");
     }
   }
 </script>
